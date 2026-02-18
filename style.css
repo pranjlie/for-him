@@ -1,0 +1,157 @@
+:root {
+    --deep-blue: #001f3f;
+    --ocean-blue: #0077be;
+    --aqua: #00d4ff;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, var(--ocean-blue), var(--deep-blue));
+    color: var(--white);
+    font-family: 'Press Start 2P', cursive;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- LOADING SCREEN --- */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--deep-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.loader-hidden { opacity: 0; visibility: hidden; }
+
+.progress-bar {
+    width: 200px; height: 15px;
+    border: 3px solid #fff;
+    margin-top: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--aqua);
+    width: 0%;
+    animation: fill-up 2.5s forwards;
+}
+
+@keyframes fill-up { to { width: 100%; } }
+
+/* --- NAVIGATION --- */
+nav { margin-top: 30px; z-index: 100; }
+
+button {
+    background: var(--aqua);
+    border: 3px solid #000;
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    margin: 5px;
+}
+
+button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
+
+/* --- CONTENT SECTIONS --- */
+main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
+.hidden { display: none; }
+.active-section { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.reasons-list { list-style: none; padding: 0; margin-top: 30px; }
+.reasons-list li { margin-bottom: 25px; font-size: 12px; line-height: 1.5; }
+
+/* --- ANIMATED DECOR --- */
+.seabed {
+    position: fixed; bottom: 0; width: 100%;
+    display: flex; justify-content: space-around; align-items: flex-end;
+    padding-bottom: 10px; z-index: 1;
+}
+
+.seaweed-pro {
+    display: flex;
+    flex-direction: column-reverse; /* Stack segments from bottom up */
+    align-items: center;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); /* Pixel shadow */
+}
+
+.seg {
+    width: 12px;
+    height: 12px;
+    background: #3e7a36; /* Lighter green */
+    border: 2px solid #1a3317; /* Darker green border */
+    margin-bottom: -2px; /* Overlap slightly to look like one plant */
+    animation: sway-curve 4s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+/* Make each segment sway a tiny bit later than the one below it */
+.seg:nth-child(2) { animation-delay: 0.2s; width: 10px; background: #4a8e41; }
+.seg:nth-child(3) { animation-delay: 0.4s; width: 8px; }
+.seg:nth-child(4) { animation-delay: 0.6s; width: 6px; background: #56a24c; }
+.seg:nth-child(5) { animation-delay: 0.8s; width: 4px; }
+
+@keyframes sway-curve {
+    0%, 100% { transform: rotate(-8deg) translateX(-2px); }
+    50% { transform: rotate(8deg) translateX(2px); }
+}
+
+
+@keyframes wave { 50% { transform: skewX(10deg); } }
+
+.starfish-pixel {
+    width: 20px; height: 20px; background: #ff7f50;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.bubble {
+    position: absolute; background: rgba(255,255,255,0.3);
+    border-radius: 50%; animation: rise var(--d) linear infinite;
+}
+
+@keyframes rise { to { transform: translateY(-110vh); } }
+
+.blink { animation: b 1.5s infinite; font-size: 8px; color: var(--aqua); }
+@keyframes b { 50% { opacity: 0; } }
+
+.seaweed-pro {
+    display: flex;
+    flex-direction: column-reverse; /* Stack segments from bottom up */
+    align-items: center;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); /* Pixel shadow */
+}
+
+.seg {
+    width: 12px;
+    height: 12px;
+    background: #3e7a36; /* Lighter green */
+    border: 2px solid #1a3317; /* Darker green border */
+    margin-bottom: -2px; /* Overlap slightly to look like one plant */
+    animation: sway-curve 4s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+
+.seg:nth-child(2) { animation-delay: 0.2s; width: 10px; background: #4a8e41; }
+.seg:nth-child(3) { animation-delay: 0.4s; width: 8px; }
+.seg:nth-child(4) { animation-delay: 0.6s; width: 6px; background: #56a24c; }
+.seg:nth-child(5) { animation-delay: 0.8s; width: 4px; }
+
+@keyframes sway-curve {
+    0%, 100% { transform: rotate(-8deg) translateX(-2px); }
+    50% { transform: rotate(8deg) translateX(2px); }
+}
