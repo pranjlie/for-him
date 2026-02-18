@@ -14,13 +14,13 @@ body {
     color: var(--white);
     font-family: 'Press Start 2P', cursive;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* --- LOADING SCREEN --- */
 #loading-screen {
     position: fixed;
     inset: 0;
@@ -49,7 +49,6 @@ body {
 
 @keyframes fill-up { to { width: 100%; } }
 
-/* --- NAVIGATION --- */
 nav { margin-top: 30px; z-index: 100; }
 
 button {
@@ -65,7 +64,6 @@ button {
 
 button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
 
-/* --- CONTENT SECTIONS --- */
 main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 .hidden { display: none; }
 .active-section { display: block; animation: fadeIn 0.5s ease; }
@@ -75,7 +73,6 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 .reasons-list { list-style: none; padding: 0; margin-top: 30px; }
 .reasons-list li { margin-bottom: 25px; font-size: 12px; line-height: 1.5; }
 
-/* --- ANIMATED DECOR --- */
 .seabed {
     position: fixed; bottom: 0; width: 100%;
     display: flex; justify-content: space-around; align-items: flex-end;
@@ -84,22 +81,21 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 
 .seaweed-pro {
     display: flex;
-    flex-direction: column-reverse; /* Stack segments from bottom up */
+    flex-direction: column-reverse;
     align-items: center;
-    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); /* Pixel shadow */
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
 }
 
 .seg {
     width: 12px;
     height: 12px;
-    background: #3e7a36; /* Lighter green */
-    border: 2px solid #1a3317; /* Darker green border */
-    margin-bottom: -2px; /* Overlap slightly to look like one plant */
+    background: #3e7a36;
+    border: 2px solid #1a3317;
+    margin-bottom: -2px;
     animation: sway-curve 4s ease-in-out infinite;
     transform-origin: bottom;
 }
 
-/* Make each segment sway a tiny bit later than the one below it */
 .seg:nth-child(2) { animation-delay: 0.2s; width: 10px; background: #4a8e41; }
 .seg:nth-child(3) { animation-delay: 0.4s; width: 8px; }
 .seg:nth-child(4) { animation-delay: 0.6s; width: 6px; background: #56a24c; }
@@ -130,17 +126,17 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 
 .seaweed-pro {
     display: flex;
-    flex-direction: column-reverse; /* Stack segments from bottom up */
+    flex-direction: column-reverse;
     align-items: center;
-    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); /* Pixel shadow */
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
 }
 
 .seg {
     width: 12px;
     height: 12px;
-    background: #3e7a36; /* Lighter green */
-    border: 2px solid #1a3317; /* Darker green border */
-    margin-bottom: -2px; /* Overlap slightly to look like one plant */
+    background: #3e7a36; 
+    border: 2px solid #1a3317;
+    margin-bottom: -2px; 
     animation: sway-curve 4s ease-in-out infinite;
     transform-origin: bottom;
 }
@@ -154,4 +150,15 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 @keyframes sway-curve {
     0%, 100% { transform: rotate(-8deg) translateX(-2px); }
     50% { transform: rotate(8deg) translateX(2px); }
+}
+
+main {
+    padding-bottom: 100px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
 }
