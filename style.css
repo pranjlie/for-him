@@ -8,17 +8,19 @@
 * { box-sizing: border-box; }
 
 body {
+ body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, var(--ocean-blue), var(--deep-blue));
-    color: var(--white);
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298, #000428); 
+    background-attachment: fixed; 
+    color: white;
     font-family: 'Press Start 2P', cursive;
-    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
 }
 
 #loading-screen {
@@ -81,17 +83,17 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 
 .seaweed-pro {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Stack segments from bottom up */
     align-items: center;
-    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3)); /* Pixel shadow */
 }
 
 .seg {
     width: 12px;
     height: 12px;
-    background: #3e7a36;
-    border: 2px solid #1a3317;
-    margin-bottom: -2px;
+    background: #3e7a36; /* Lighter green */
+    border: 2px solid #1a3317; /* Darker green border */
+    margin-bottom: -2px; /* Overlap slightly to look like one plant */
     animation: sway-curve 4s ease-in-out infinite;
     transform-origin: bottom;
 }
@@ -126,7 +128,7 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 
 .seaweed-pro {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; 
     align-items: center;
     filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
 }
@@ -134,9 +136,9 @@ main { text-align: center; margin-top: 50px; z-index: 10; width: 80%; }
 .seg {
     width: 12px;
     height: 12px;
-    background: #3e7a36; 
+    background: #3e7a36;
     border: 2px solid #1a3317;
-    margin-bottom: -2px; 
+    margin-bottom: -2px;
     animation: sway-curve 4s ease-in-out infinite;
     transform-origin: bottom;
 }
